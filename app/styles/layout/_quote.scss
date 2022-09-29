@@ -1,0 +1,123 @@
+.quote{
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    background-color: $gray-light-color;
+    &-list{
+        position: relative;
+    }
+    &-item{
+        display: flex;
+        align-items: center;
+    }
+    &-info{
+        padding-right: 3rem;
+    }
+    &-icon{
+        padding: 2.2rem;
+        font-size: 2rem;
+        // display: none;
+    }
+    &-content{
+        display: flex;
+    }
+    // slick slider
+    .slick-arrow{
+        background: transparent;
+        position: absolute;
+        border: none;
+        cursor: pointer;
+        i{
+            font-size: 4rem;
+            font-weight: 300;
+        } 
+    }
+    .slick-prev{
+        @include absoluteCenter('top');
+        left:0;
+    }
+    .slick-next{
+        @include absoluteCenter('top');
+        right: 0;
+    }
+
+    &-icon{
+        margin-left: 5rem;
+        margin-right: 5rem;
+        @include sizeBox(15rem); 
+        // nên dùng theo kiểu kích thước này responsive ko bị lôi
+        @include flexBox(row,center,center);
+        border:3px solid $third-color; 
+        flex-shrink: 0;
+        // height: fit-content; 
+        img{
+            
+            @include sizeBox(6rem,7rem);
+        }
+    }
+    &-img{
+        margin-left: 5rem;
+        margin-right: 5rem;
+        flex-shrink: 0;
+        img{
+            @include sizeBox(20rem);
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+    &-text{
+        margin-bottom: 2.5rem;
+        display: block;
+        color:$text-color;
+        line-height: 1.8;
+        font-family: $secondary-font;
+        font-size: 2.4rem;
+        font-style: italic;
+        // @include textClamp(2);
+        font-weight: 300;
+    }
+    &-author{
+        display: block;
+        font-family: $third-font;
+        font-size: 2.4rem;
+        padding-left: 7.2rem;
+        position: relative;
+        &::before{
+            content: '';
+            @include sizeBox(6rem, 3px);
+            // position: absolute;
+            background-color: $primary-color;
+            @include absoluteCenter('top');
+            left:0;
+        }
+    }
+    @include maxWidth(1023px){
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        &-text{
+            font-size: 1.8rem;
+        }
+    }
+    @include maxWidth(767px){
+       &-content{
+        flex-direction: column;
+        align-items: center;
+       }
+        &-icon{
+            @include sizeBox(12rem);
+            margin-bottom: 2rem;
+        }
+        &-img{
+            img{
+                @include sizeBox(13rem);
+            }
+            margin-bottom: 2rem;
+        }
+        &-info{
+            width: 100%;
+        }
+        &-icon{
+            display: none;
+        }
+    }
+   
+}

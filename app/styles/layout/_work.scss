@@ -1,0 +1,85 @@
+.work{
+    padding-top:10rem;
+    &-list{
+        @include flexBox(row,flex-start,stretch,wrap);
+        height: 78rem;
+    }
+    @include hoverEffect('.work-item','.work-content','false');
+    &-column{
+        width:25%;
+    }
+   
+    &-item{
+        height: 50%;
+       &--full{
+        height: 100%;
+       }
+    }
+    &-img{
+        @include sizeBox(100%);
+        object-fit: cover;
+    }
+    &-info{
+        @include flexBox(column);
+        margin-top: 2rem;
+        padding-inline: 1.5rem;
+    }
+    &-title{
+        font-weight: 700;
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        @include lineClamp(1);
+    }
+    &-desc{
+        @include lineClamp(3);
+    }
+    @include maxWidth(1279px){
+        &-list{
+            height:70rem;
+        }
+    }
+    @include maxWidth(1079px){
+        &-list{
+            height:60rem;
+        }
+    }
+    @include maxWidth(979px){
+        &-list{
+            height:50rem;
+        }
+    }
+    @include maxWidth(767px){
+        &-list{
+            height:auto;
+        }
+        &-column{
+            width:50%;
+        }
+        &-item{
+            height: 28rem;
+            &--full{
+                height: 56rem;
+            }
+        }
+
+    }
+    @include maxWidth(575px){
+        &-list{
+            display: block;
+        }
+        &-column{
+            width: 100%;
+        }
+        &-item{
+            height: auto;
+            &--full{
+                height: auto;
+            }
+        }
+       
+    }
+
+
+}
+

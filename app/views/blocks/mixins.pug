@@ -1,0 +1,122 @@
+mixin menuLink(title, link='#')
+     li.header-menu-item 
+        a.header-menu-link(href= link)= title 
+    
+mixin headerBottomItem(number,text)
+     .header-bottom-item
+        span.header-bottom-number= number
+        span.header-bottom-text= text 
+
+
+mixin blockHeader(caption, title, decs)
+    .block-header
+        h3.block-header-caption= caption 
+        h2.block-header-title= title 
+        if decs 
+            p.block-header-decs= decs 
+
+mixin aboutItem(srcImg,aboutTitle,aboutIcon,altImg='',titleImg='')
+     .about-item 
+        img.about-img(src= srcImg , alt= altImg)
+        .about-content 
+            span.about-icon
+                i(class= aboutIcon)
+            span.about-title= aboutTitle 
+
+mixin serviceItem(srcImg,serviceTitle,serviceDecs,altImg='',titleImg='')
+    .service-item 
+        img.service-item-icon(src= srcImg, alt= altImg, title= titleImg )
+        .service-item-info 
+            h4.service-item-title= serviceTitle
+            p.service-item-decs= serviceDecs
+
+mixin wedoItem(itemIconSrc,itemTitle,itemText,is-active='',itemIconAlt='',itemIconTitle='')
+     .wedo-item
+        .wedo-item-header
+            img.wedo-item-icon(src= itemIconSrc, alt= itemIconAlt, title= itemIconTitle)
+            h4.wedo-item-title= itemTitle
+            i.wedo-item-arrow.fal.fa-angle-up 
+        .wedo-item-content(class= is-active)
+            .wedo-item-wrapper-text
+                p.wedo-item-text= itemText
+
+
+mixin quoteItem(srcImg,quoteText,quoteAuthor,type='icon',altImg='',titleImg='')
+     .quote-item 
+        .quote-content 
+            if type=='icon'
+                .quote-icon 
+                    img(src= srcImg, alt= altImg, title= titleImg)
+            else if type=='img'
+                 .quote-img 
+                    img(src= srcImg, alt= altImg, title= titleImg)
+            .quote-info
+                q.quote-text= quoteText
+                span.quote-author= quoteAuthor
+
+mixin ourteamSocial(hrefFb='',hrefTwitter='',hrefYoutube='',hrefIg='')
+     ul.ourteam-content-list 
+        li.ourteam-content-item
+            a.ourteam-content-icon(href= hrefFb) 
+                i.fab.fa-facebook-f
+        li.ourteam-content-item
+            a.ourteam-content-icon(href= hrefTwitter) 
+                i.fab.fa-twitter
+        li.ourteam-content-item
+            a.ourteam-content-icon(href= hrefYoutube) 
+                i.fab.fa-youtube
+        li.ourteam-content-item
+            a.ourteam-content-icon(href= hrefIg) 
+                i.fab.fa-instagram
+
+mixin ourteamItem(srcImg,authorName,authorDecs,altImg='',titleImg='')
+     .ourteam-item 
+        .ourteam-social
+            img.ourteam-img(src= srcImg, alt= altImg, title= titleImg)
+            .ourteam-content 
+                if block 
+                    block
+        .ourteam-info 
+            p.ourteam-name= authorName
+            span.ourteam-decs= authorDecs
+
+mixin sponserItem(srcImg, altImg='', titleImg='')
+    li.sponser-item
+        img.sponser-img(src= srcImg , alt= altImg, title= titleImg)  
+
+
+mixin workItem(imgSrc,iconSrc,title,desc,itemFull='',imgAlt='',imgTitle='',iconAlt='',iconTitle='')
+     .work-item(class= itemFull)
+        img.work-img(src= imgSrc, alt= imgAlt, title= imgTitle)
+        .work-content 
+            img.work-icon(src= iconSrc , alt= iconAlt, title= iconTitle)
+            .work-info
+                h3.work-title= title
+                p.work-desc.text.text--light.text--italic= desc
+            //- img.work-img(src="images/img-work1.png", alt="")
+
+mixin peopleItem(srcImg,name,position,text,altImg='',titleImg='')
+     .people-item 
+        img.people-avatar(src= srcImg , alt= altImg, title= titleImg)
+        .people-info 
+            h3.people-name= name
+            p.people-position.text.text--light.text--italic= position
+            p.people-desc.text= text
+
+mixin blogItem(srcImg,dateNumber,dateText,title,text,metaNumber,altImg='',titleImg='')
+    .blog-item
+        .blog-media 
+            img.blog-img(src= srcImg , alt= altImg, title= titleImg)
+            .blog-date 
+                p.blog-date-number= dateNumber 
+                p.blog-date-text= dateText
+        a.blog-title(href='#')= title
+        .blog-desc
+            p.blog-desc-inner.text= text
+        .blog-meta
+            .blog-meta-item 
+                i.fas.fa-eye.blog-meta-icon
+                span.blog-meta-number.text.text--italic= metaNumber
+            .blog-meta-item 
+                i.fas.fa-comments.blog-meta-icon
+                span.blog-meta-number.text.text--italic= metaNumber

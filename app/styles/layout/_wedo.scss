@@ -1,0 +1,71 @@
+.wedo{
+    padding-top: 11rem;
+    padding-bottom: 12rem;
+    &-wrapper{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 3rem;
+    }
+    &-item:not(:last-child){
+        margin-bottom: 1rem;
+    }
+    &-img{
+        @include sizeBox(100%);
+        object-fit: cover;
+    }
+    &-item-header{
+        padding:1.5rem;
+        border:1px solid $gray-dark-color;
+        @include flexBox(row,flex-start,center,nowrap);
+
+    }
+    &-item-title{
+        margin-left: 1.5rem;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+   &-item-arrow{
+    margin-left: auto;
+    font-size: 3rem;
+   }
+    &-item-content{
+        padding: 3rem 2rem;
+        border:1px solid $gray-dark-color;
+        border-top:none;
+        color:$text-color;
+        display: none;
+    }
+    &-item-content.is-active{
+        display: block;
+    }
+    &-item-wrapper-text{
+        height: 11rem;
+        overflow: auto;
+        padding-right: 2.5rem;
+        &::-webkit-scrollbar {
+            width: 0.5em;
+          }
+           
+        &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 4rem;
+        }
+           
+        &::-webkit-scrollbar-thumb {
+            background-color: $third-color;
+            border-radius: 4rem;
+            // outline: 1px solid slategrey;
+        }
+    }
+    &-item-text{
+        line-height: 1.8rem;
+    }
+    @include maxWidth(767px){
+        padding-top: 8rem;
+        padding-bottom: 6rem;
+        &-wrapper{
+            grid-template-columns: 1fr;
+            row-gap: 4rem;
+        }
+    }
+}

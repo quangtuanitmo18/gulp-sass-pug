@@ -1,0 +1,29 @@
+.sponser{
+   padding:7rem 1rem;
+   background-color: $gray-light-color;
+    &-list{
+        display: grid;
+        grid-template-columns: repeat(6,1fr);
+        // column-gap: 2rem;
+    }
+    &-link{
+        color: red;
+    }
+    &-img{
+        @include sizeBox(11rem);
+    }
+    @include maxWidth(767px){
+      &-list{
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(2,1fr);
+        row-gap: 2rem;
+      }
+    }
+    @include maxWidth(479px){
+        &-list{
+          grid-template-columns: repeat(2,1fr);
+          grid-template-rows: repeat(3,1fr);
+          row-gap: 2rem;
+        }
+      }
+}

@@ -1,0 +1,62 @@
+.number{
+    @include bg($third-color);
+    &-list{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &-item{
+        padding: 8rem 1rem;
+        width: 20%;
+        color:white;
+        text-align: center;
+        border-left: 2px solid white;
+    }
+    &-item:last-child{
+        border-right: 2px solid white;
+    }
+    &-item-count{
+        font-size: 7.2rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+    }
+    &-item-text{
+        text-transform: uppercase;
+        line-height: 1.8rem;
+        // @include lineClamp;
+    }
+    @include maxWidth(767px){
+        &-item{
+            padding:5rem 0.5rem;
+        }
+        &-item-count{
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+    }
+    @include maxWidth(575px){
+        &-item{
+            padding:3rem 0.5rem;
+        }
+        &-item-count{
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        &-item-text{
+            font-size: 1rem;
+        }
+    }
+    @include maxWidth(480px){
+        &-item{
+            width: 100%;
+            border-left: none;
+            
+        }
+        &-item:not(:last-child){
+            border-bottom: 2px solid white;
+        }
+        &-item:last-child{
+            border-right: none;
+        }
+        
+    }
+}

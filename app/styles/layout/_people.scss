@@ -1,0 +1,70 @@
+.people{
+    padding-top: 11rem;
+    padding-bottom: 3rem;
+    background: linear-gradient(to bottom,rgba(white,0.8),rgba(white,0.8)), url('https://images.unsplash.com/photo-1547093349-65cdba98369a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80') no-repeat center / cover;
+
+    &-list{
+        @include flexBox(row,space-between,center,wrap);
+        margin-top: 8rem;
+        padding-inline: 4rem;
+    }
+    &-item{
+        width: calc(50% - 4rem);
+        margin-bottom: 7rem;
+        @include flexBox();
+    }   
+    &-info{
+        padding-left: 3rem;
+    }
+    &-name{
+        font-weight: 600;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        @include lineClamp(1)
+    }
+    &-avatar{
+        @include sizeBox(11rem);
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+    &-position{
+        padding-bottom: 2.5rem;
+        margin-bottom: 2.5rem;
+        position:relative;
+        &::before{
+            content: '';
+            position: absolute;
+            @include sizeBox (6rem,3px);
+            bottom: 0;
+            left:0;
+            background-color: $primary-color;
+        }
+    }
+    &-desc{
+        @include lineClamp(5);
+    }
+    @include maxWidth(1279px){
+        padding-top:6rem;
+    }
+    @include maxWidth(767px){
+        &-list{
+            display: block;
+            padding-inline: 0;
+        }
+        &-item{
+            width: 100%;
+        }
+    }
+    @include maxWidth(479px){
+        &-avatar{
+            @include sizeBox(8rem);
+            // margin-block: auto;
+            margin-bottom: 2rem;
+        }
+        &-item{
+            display: block;
+            // margin: 0 auto;
+        }
+    }
+}
