@@ -313,11 +313,14 @@ input, button, textarea, select {
 .about-item {
   cursor: pointer;
   position: relative;
-  z-index: 1;
-  -webkit-transition: all linear 0.25s;
-  transition: all linear 0.25s; }
+  z-index: 1; }
+  .about-item > * {
+    will-change: "true";
+    -webkit-transition: all linear 0.25s;
+    transition: all linear 0.25s; }
   .about-item::before {
     content: '';
+    will-change: "true";
     position: absolute;
     top: 0;
     left: 0;
@@ -328,15 +331,13 @@ input, button, textarea, select {
     -webkit-transition: all linear 0.25s;
     transition: all linear 0.25s; }
 
-.about-item:hover {
+.about-item:hover .about-content {
+  opacity: 1;
+  visibility: visible; }
+
+.about-item:hover > * {
   -webkit-transform: translate(-1rem, -1rem);
   transform: translate(-1rem, -1rem); }
-  .about-item:hover .about-content {
-    opacity: 1;
-    visibility: visible; }
-  .about-item:hover::before {
-    -webkit-transform: translate(1rem, 1rem);
-    transform: translate(1rem, 1rem); }
 
 .about-content {
   position: absolute;
@@ -747,11 +748,14 @@ input, button, textarea, select {
   .ourteam .ourteam-social {
     cursor: pointer;
     position: relative;
-    z-index: 1;
-    -webkit-transition: all linear 0.25s;
-    transition: all linear 0.25s; }
+    z-index: 1; }
+    .ourteam .ourteam-social > * {
+      will-change: "true";
+      -webkit-transition: all linear 0.25s;
+      transition: all linear 0.25s; }
     .ourteam .ourteam-social::before {
       content: '';
+      will-change: "true";
       position: absolute;
       top: 0;
       left: 0;
@@ -761,15 +765,12 @@ input, button, textarea, select {
       z-index: -1;
       -webkit-transition: all linear 0.25s;
       transition: all linear 0.25s; }
-  .ourteam .ourteam-social:hover {
+  .ourteam .ourteam-social:hover .ourteam-content {
+    opacity: 1;
+    visibility: visible; }
+  .ourteam .ourteam-social:hover > * {
     -webkit-transform: translate(-1rem, -1rem);
     transform: translate(-1rem, -1rem); }
-    .ourteam .ourteam-social:hover .ourteam-content {
-      opacity: 1;
-      visibility: visible; }
-    .ourteam .ourteam-social:hover::before {
-      -webkit-transform: translate(1rem, 1rem);
-      transform: translate(1rem, 1rem); }
   .ourteam .ourteam-content {
     position: absolute;
     top: 0;
@@ -931,9 +932,11 @@ input, button, textarea, select {
   .work .work-item {
     cursor: pointer;
     position: relative;
-    z-index: 1;
-    -webkit-transition: all linear 0.25s;
-    transition: all linear 0.25s; }
+    z-index: 1; }
+    .work .work-item > * {
+      will-change: "false";
+      -webkit-transition: all linear 0.25s;
+      transition: all linear 0.25s; }
   .work .work-item:hover .work-content {
     opacity: 1;
     visibility: visible; }
@@ -1379,7 +1382,6 @@ input, button, textarea, select {
   color: #95e1d3; }
 
 .footer-form {
-  width: 100%;
   max-width: 38rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1405,7 +1407,8 @@ input, button, textarea, select {
   border: none;
   text-transform: uppercase;
   -ms-flex-negative: 0;
-  flex-shrink: 0; }
+  flex-shrink: 0;
+  font-size: 1.4rem; }
 
 .footer-form-input {
   padding: 1.2rem;
@@ -1413,7 +1416,8 @@ input, button, textarea, select {
   border: 1px solid #cccccc;
   -webkit-box-flex: 1;
   -ms-flex: 1;
-  flex: 1; }
+  flex: 1;
+  line-height: 1; }
 
 .footer-blog-list {
   display: -webkit-box;
@@ -1516,6 +1520,27 @@ input, button, textarea, select {
   .footer-column:not(:nth-child(999)) {
     width: 100%;
     margin-bottom: 5rem; } }
+
+@media screen and (max-width: 479px) {
+  .footer-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: start;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 1rem; }
+  .footer-form-input {
+    width: 100%; } }
 
 .footer-bottom {
   padding-block: 2rem;

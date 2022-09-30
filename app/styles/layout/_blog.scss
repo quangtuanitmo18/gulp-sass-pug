@@ -3,6 +3,7 @@
     // padding-bottom: 11rem;
     &-list{
         @include flexBox(row,space-between,stretch,nowrap);
+      
     }
     &-item{
         width: calc(100%/3 - 2rem);
@@ -16,10 +17,15 @@
         object-fit: cover;
     }
     &-date{
+        
       position: absolute;
       padding: 1.5rem;
       background-color: $third-color;
+   
       color: white;
+    //   @include bg2((
+    //         bg: black
+    //     ));
       left:-1rem;
       bottom:1rem;
     }
