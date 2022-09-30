@@ -1,7 +1,18 @@
 @mixin bg($background-color: $primary-color) {
     background-color: $background-color;
   }
-  
+
+  //  sử dụng thử object
+  @mixin bg2($conf: ()){
+    $conf:extend(
+      (bg: $primary-color,color:blue),
+      $conf
+    );
+    background-color: map-get($conf, bg);
+    color: map-get($conf, color);
+  }
+
+
   @mixin sizeBox($width, $height: $width) {
     width: $width;
     height: $height;
@@ -116,16 +127,21 @@
       cursor: pointer;
       position: relative;
       z-index: 1;
+      & > * {
+        will-change: $transform;
+        transition: all linear 0.25s;
+      }
+      
       @if($transform=='true'){
         &::before{
           content: '';
+          will-change: $transform;
           @include absoluteFull();
           @include bg($third-color);
           z-index:-1;
           transition: all linear 0.25s;
       }
       }
-      transition: all linear 0.25s;
     }
     #{$selectorParent}:hover{
       #{$selectorChild}{
@@ -133,10 +149,12 @@
         visibility: visible;
       }
       @if($transform=='true'){
-        transform: translate(-1rem,-1rem);
-        &::before{
-            transform: translate(1rem,1rem);
+        & > *{
+          transform: translate(-1rem,-1rem);
         }
+        // &::before{
+        //     transform: translate(1rem,1rem);
+        // }
       }
     }
     #{$selectorChild}{

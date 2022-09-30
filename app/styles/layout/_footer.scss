@@ -58,7 +58,7 @@
         color:$third-color;
     }
     &-form{
-        width:100%;
+        // width:100%;
         max-width: 38rem;
         @include flexBox(row,flex-start,center,nowrap);
     }
@@ -70,6 +70,7 @@
         border: none;
         text-transform: uppercase;
         flex-shrink: 0;
+        font-size: 1.4rem;
     }
     &-form-input{
         // width: 100%;
@@ -77,6 +78,7 @@
         outline: none;
         border: 1px solid $gray-dark-color;
         flex:1;
+        line-height: 1; 
     }
    
     &-blog-list{
@@ -135,6 +137,15 @@
         &-column:not(:nth-child(999)){
             width: 100%;
             margin-bottom: 5rem;
+        }
+    }
+    @include maxWidth(479px){
+        &-form{
+            @include flexBox(column,flex-start,start,wrap);
+            gap:1rem;
+        }
+        &-form-input{
+            width: 100%;
         }
     }
 
