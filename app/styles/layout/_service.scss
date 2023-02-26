@@ -1,59 +1,58 @@
 .service {
-    padding-top: 10rem;
-    padding-bottom: 11rem;
+  padding-top: 10rem;
+  padding-bottom: 11rem;
 
+  &-list {
+    @include flexBox(row, space-between, stretch, nowrap);
+    padding: 5rem 0;
+  }
+
+  &-list:first-of-type {
+    border-bottom: 2px solid $gray-dark-color;
+  }
+
+  &-item {
+    @include flexBox();
+    // margin-left: 4rem;
+    width: calc(33% - 2.7rem);
+    // margin-left: -3rem;
+  }
+  &-item-info {
+    @include flexBox(column, space-between);
+  }
+  &-item:first-child {
+    margin-left: 0;
+  }
+
+  &-item-icon {
+    margin-left: 3rem;
+    margin-right: 3rem;
+    @include sizeBox(3rem);
+  }
+
+  &-item-title {
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+  }
+
+  &-item-decs {
+    font-family: $secondary-font;
+    color: $text-color;
+    font-size: 1.5rem;
+    @include lineClamp(3);
+  }
+  @include maxWidth(767px) {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
     &-list {
-        @include flexBox(row, space-between, stretch, nowrap);
-        padding: 5rem 0;
+      flex-wrap: wrap;
     }
-
-    &-list:first-of-type {
-        border-bottom: 2px solid $gray-dark-color;
-    }
-
     &-item {
-        @include flexBox();
-        // margin-left: 4rem;
-        width: calc(33% - 2.7rem);
-        // margin-left: -3rem;
+      width: 100%;
     }
-    &-item-info{
-        @include flexBox(column,space-between);
-        
+    &-item:not(:last-child) {
+      margin-bottom: 3rem;
     }
-    &-item:first-child {
-        margin-left: 0;
-    }
-
-    &-item-icon {
-        margin-left: 3rem;
-        margin-right: 3rem;
-        @include sizeBox(3rem);
-    }
-
-    &-item-title {
-        text-transform: uppercase;
-        font-weight: 500;
-        margin-bottom: 2.5rem;
-    }
-
-    &-item-decs {
-        font-family: $secondary-font;
-        color: $text-color;
-        font-size: 1.5rem;
-        @include lineClamp(3);
-    }
-    @include maxWidth(767px){
-        padding-top: 5rem;
-        padding-bottom: 6rem;
-        &-list{
-            flex-wrap: wrap;
-        }
-        &-item{
-            width: 100%;
-        }
-        &-item:not(:last-child){
-            margin-bottom: 3rem;
-        }
-    }
+  }
 }
